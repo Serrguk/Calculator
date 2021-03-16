@@ -18,14 +18,14 @@ public class CalculatorEngine implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //Получаем источник действия(нажатия на кнопку)
         JButton clickedButton = (JButton) e.getSource();
-        String dispFieldText = parent.displayField.getText();
+        String displayFieldText = parent.displayField.getText();
 
         double displayValue = 0;
 
 
         //Получаем значение из дисплея калькулятора, если он не пустой
-        if (!"".equals(dispFieldText)) {
-            displayValue = Double.parseDouble(dispFieldText);
+        if (!"".equals(displayFieldText)) {
+            displayValue = Double.parseDouble(displayFieldText);
         }
         Object src = e.getSource();
         /*
@@ -72,7 +72,7 @@ public class CalculatorEngine implements ActionListener {
                 //Для всех цифровых кнопок - присоединить надпись
                 //на кнопке к надписи на дисплее
                 String clickedButtonLabel = clickedButton.getText();
-                parent.displayField.setText(dispFieldText + clickedButtonLabel);
+                parent.displayField.setText(displayFieldText + clickedButtonLabel);
             }
         }
     }
