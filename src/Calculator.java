@@ -31,6 +31,7 @@ public class Calculator {
         //Создаём и отображаем поле
         //И помещаем его в Северную область окна
         displayField = new JTextField(30);
+
         windowsContent.add("North", displayField);
 
         //Создаём кнопки, используя конструктор класса JButton,
@@ -51,11 +52,11 @@ public class Calculator {
         // которая содержит 12 кнопок -
         //10 кнопок с цифрами и кнопки с точкой и знаком равно.
         p1 = new JPanel();
-        GridLayout gl = new GridLayout(4, 3);
+        GridLayout gl = new GridLayout(4, 3, 5, 5);
         p1.setLayout(gl);
 
         p2 = new JPanel();
-        GridLayout g2 = new GridLayout(4, 1);
+        GridLayout g2 = new GridLayout(4, 1, 5, 5);
         p2.setLayout(g2);
 
         //Добавляем кнопки на панель pl.
@@ -71,11 +72,11 @@ public class Calculator {
         p2.add(buttonMultiply);
         p2.add(buttonDivided);
 
-        //Помещаем панель pl в центральную область окна.
+        //Помещаем панель p1 в центральную область окна, а p2 - в восточную.
         windowsContent.add("Center", p1);
         windowsContent.add("East", p2);
 
-        // Создаём фрейм и задаём его основную панель.
+        // Создаём фрейм(в параметрах пишем название) и задаём его основную панель.
         JFrame frame = new JFrame("It's fucking plus-minus");
         frame.setContentPane(windowsContent);
 
@@ -84,5 +85,25 @@ public class Calculator {
 
         //Делаем окно видимым.
         frame.setVisible(true);
+
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
+
+        numButtons[0].addActionListener(calcEngine);
+        numButtons[1].addActionListener(calcEngine);
+        numButtons[2].addActionListener(calcEngine);
+        numButtons[3].addActionListener(calcEngine);
+        numButtons[4].addActionListener(calcEngine);
+        numButtons[5].addActionListener(calcEngine);
+        numButtons[6].addActionListener(calcEngine);
+        numButtons[7].addActionListener(calcEngine);
+        numButtons[8].addActionListener(calcEngine);
+        numButtons[9].addActionListener(calcEngine);
+
+        buttonPoint.addActionListener(calcEngine);
+        buttonEquals.addActionListener(calcEngine);
+        buttonPlus.addActionListener(calcEngine);
+        buttonMinus.addActionListener(calcEngine);
+        buttonMultiply.addActionListener(calcEngine);
+        buttonDivided.addActionListener(calcEngine);
     }
 }
